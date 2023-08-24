@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+
 //import { ObjToArrayPipe } from './objectToArray.pipe';
+
 
 
 @NgModule({
