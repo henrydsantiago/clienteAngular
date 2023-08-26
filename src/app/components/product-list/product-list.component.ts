@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from "../../services/product.service";
 import { Product } from 'src/app/interfaces/Product';
-import { Observable } from 'rxjs';
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -18,16 +16,25 @@ export class ProductListComponent {
     price:0,
     imageURL:''
   }; */
+  
+
+  handleSearch(value:string){
+    this.filtroValue=value
+  }
+
+
+  filtroValue = ''
 
   constructor(
-    private productService: ProductService,
-    private router: Router){}
+    private productService: ProductService
+    ){}
+    
 
   ngOnInit(){
     this.getProducts()
   }
 
-  //editar:boolean=false;
+  editar:boolean=false;
 
     getProducts(){
       this.productService.getProducts()

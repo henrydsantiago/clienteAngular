@@ -32,5 +32,4 @@ export class ProductService {
   updateProduct(id:string, product:Product){
     return this.http.put<Product>(`${this.CORS_URL}${this.BASE_URL}/product/update?productID=${id}`, product)
   }
-
 }

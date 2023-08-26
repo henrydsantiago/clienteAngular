@@ -1,35 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">AngularNestJS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/product/" routerLinkActive="active">Products</a>
-          </li>
-          <li class="nav-item"> 
-            <a class="nav-link" routerLink="/product/create" routerLinkActive="active">Product Create</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav> -->
-
-
   <nav class="navbar navbar-expand-lg  bg-light" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">AngularNestJS</a>
@@ -48,7 +16,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-            <button class="btn btn-primary dropdown" type="button" data-bs-target="#navbarSupportedContent" data-toggle="dropdown">Dropdown Example
+            <button class="btn btn-outline-primary dropdown" type="button" data-bs-target="#navbarSupportedContent" data-toggle="dropdown">Dropdown Example
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -56,10 +24,35 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </button>
-        <form class="d-flex">
-          <input class="form-control me-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <app-search (buscar)="handleSearch($event)"></app-search>
       </div>
     </div>
   </nav>
+  <div class="container p-4">
+      <ul *ngFor="let product of productox">
+        <div class="row">
+          <div class="col-md-8">
+              <ul>
+                  <li>
+                      id:{{product._id}}
+                  </li>
+                  <li>
+                      name: {{product.name}}
+                  </li>
+                  <li>
+                      description: {{product.description}}
+                  </li>
+                  <li>
+                      price: {{product.price}}
+                  </li>
+                  <li>
+                      created at: {{product.createdAt}}
+                  </li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+              <img [src]="product.imageURL" class="card-img">
+          </div>
+      </div>
+    </ul>
+  </div>
