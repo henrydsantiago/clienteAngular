@@ -22,12 +22,13 @@ export class NavbarComponent {
 
 
   handleSearch(value:string){
-    this.getProduct(value)
+    //this.getProducts(value)       // Para buscar por ID
+    this.getProductsByName(value) // Para buscar por Nombre
     console.log(value);
   }
 
   productox: any[]=[]
-
+ 
    
   ngOnInit(){
     
@@ -35,7 +36,7 @@ export class NavbarComponent {
     .subscribe((products) => this.productox=products) */
   }
 
-  getProduct(id:string){
+/*   getProduct(id:string){
     this.productService.getProduct(id)
       .subscribe(
         (producto)=>{
@@ -45,25 +46,31 @@ export class NavbarComponent {
           console.log('Este es el Array de productox');
           console.log(this.productox);
 
-         }
-         //64deb99ba047f37da1c9fe49
-
-/*         (res:any) => {
+         },
+        err=> console.log(err)
+      )
+  } */
+  getProductsByName(nombre:string){
+    this.productService.getProductsByParam(nombre)
+      .subscribe(
+        (res:any) => {
           let result:any = [];
     
           let keys = Object.keys(res);
             keys.forEach(function(key){
                 result.push(res[key]);
             });
-    
-          this.productox = result[0]
-        } */
+            
+          this.productox = result
+          console.log("Esto es el resultado de getProductsByName()");
+          console.log(result)
+        }
         
         ,
         err=> console.log(err)
       )
   }
-  
+
 
 
 }
